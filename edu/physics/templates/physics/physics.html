@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %} {% block content %}
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class="mb-12 text-2xl text-center">Biology Chapters</h2>
+
+  <div class="grid grid-cols-3 gap-3">
+    {% for chapter in physics_chapters %}
+    <div>
+      <a href="{% url 'physics_detail' chapter.id %}">
+        <div>
+          <img src="{{ chapter.image.url }}" class="rounded-t-xl" />
+        </div>
+
+        <div class="p-6 bg-white rounded-b-xl">
+          <h2 class="text-2xl">{{ chapter.title }}</h2>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

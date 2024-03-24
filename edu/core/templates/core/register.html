@@ -1,13 +1,36 @@
 </html>
+<div class="bg-gray-100">
+  <nav class="py-4 px-6 flex justify-between items-center">
+    <a href="/" class="text-xl font-semibold text-blue-800">Learning App</a>
+    <div class="space-x-6">
+      <a href="#" class="text-lg font-semibold hover:text-gray-500">Home</a>
+      <a href="#" class="text-lg font-semibold hover:text-gray-500"
+        >About Us</a
+      >
+      <a href="#" class="text-lg font-semibold hover:text-gray-500"
+        >Courses</a
+      >
+      <a href="#" class="text-lg font-semibold hover:text-gray-500"
+        >Contact us</a
+      >
+      <a
+        href="{% url 'register' %}"
+        class="px-6 py-3 text-lg font-semibold bg-blue-800 text-white rounded-xl hover:bg-gray-700"
+        >Register</a
+      >
+    </div>
+  </nav>
+</div>
 <link
   href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
   rel="stylesheet"
 />
+
 <!-- {% block title %} Register {% endblock %} {% block content %} -->
 
-<main class="bg-sky-100 bg-opacity-80 py-10 flex flex-col items-center">
+<main class="bg-sky-100 bg-opacity-80  flex flex-col items-center">
   <section
-    class="flex flex-col lg:flex-row justify-center items-center w-full p-20 max-w-7xl"
+    class="flex flex-col lg:flex-row justify-center items-center w-full p-5 max-w-7xl"
   >
     <div class="lg:w-1/2 px-8 order-last lg:order-first">
       <img
@@ -29,37 +52,10 @@
           aria-label="Sign up form"
         >
           {% csrf_token %}
-
-          <!-- <ul>
-            <li>
-                <label for="{{ form.username.id_for_label }}">Username:</label>
-                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" value="{{ form.username.value }}">
-            </li>
-            <li>
-                <label for="{{ form.first_name.id_for_label }}">First Name:</label>
-                <input type="text" id="{{ form.first_name.id_for_label }}" name="{{ form.first_name.html_name }}" value="{{ form.first_name.value }}" required>
-            </li>
-            <li>
-                <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
-                <input type="text" id="{{ form.last_name.id_for_label }}" name="{{ form.last_name.html_name }}" value="{{ form.last_name.value }}" required>
-            </li>
-            <li>
-                <label for="{{ form.email.id_for_label }}">Email:</label>
-                <input type="email" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" value="{{ form.email.value }}" required>
-            </li>
-            <li>
-                <label for="{{ form.password1.id_for_label }}">Password:</label>
-                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" value="{{ form.password1.value }}" required>
-            </li>
-            <li>
-                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
-                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" value="{{ form.password2.value }}" required>
-            </li>
-        </ul> -->
-        
+          
         {% for field in registerform %}
           <div class="fieldWrapper">
-            {{ field.label_tag }}: {{ field }}
+            {{ field.label_tag }} {{ field }}
             {% if field.errors %}
               <ul class="errorlist">
                 {% for error in field.errors %}

@@ -1,0 +1,4 @@
+{% extends 'core/chapter_detail.html' %} {% block chapter-name %} {{item.title}}
+{% endblock %} {% block subject-name%} Biology {% endblock %} 
+{% block chapter-image %} <img src="{{item.image.url}}" /> {% endblock %} 
+{% block content %} {{item.content}}{% endblock %}
